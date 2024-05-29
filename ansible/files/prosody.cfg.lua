@@ -306,7 +306,7 @@ end
 isolate_except_domains = { "push.snikket.net", "push-ios.snikket.net" }
 
 VirtualHost (DOMAIN)
-	authentication = "internal_hashed"
+	authentication = "ldap"
 
 	modules_enabled = {}
 	firewall_scripts = {}
