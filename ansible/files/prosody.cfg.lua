@@ -307,6 +307,14 @@ isolate_except_domains = { "push.snikket.net", "push-ios.snikket.net" }
 
 VirtualHost (DOMAIN)
 	authentication = "ldap"
+	
+	ldap_base = "dc=myorganisation,dc=local"
+	ldap_server = "ad.myorganisation.local:3894537"
+	ldap_rootdn = "CN=adbinduser,OU=serviceusergroup,DC=myorganisation,DC=local"
+	ldap_password = "binduserpassword"
+	ldap_tls = true
+	ldap_filter = "(sAMAccountName=$user)"
+	ldap_mode = "bind"
 
 	modules_enabled = {}
 	firewall_scripts = {}
