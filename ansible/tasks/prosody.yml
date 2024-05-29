@@ -237,3 +237,7 @@
     owner: root
     group: root
     mode: 0644
+    
+- name: 
+  ansible.builtin.shell: prosodyctl install --server=https://modules.prosody.im/rocks/ mod_auth_ldap
+  
