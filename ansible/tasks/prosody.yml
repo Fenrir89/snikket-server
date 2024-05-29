@@ -81,6 +81,7 @@
     dest: "/etc/prosody/modules/{{item}}"
   loop:
     - mod_cloud_notify
+    - mod_auth_ldap
     - mod_cloud_notify_extensions
     - mod_cloud_notify_encrypted
     - mod_cloud_notify_priority_tag
@@ -165,6 +166,18 @@
 - name: "Install lua-ossl for encrypted push notifications"
   apt:
     name: lua-luaossl
+    state: present
+    install_recommends: no
+
+- name: "Install openldap"
+  apt:
+    name: openldap
+    state: present
+    install_recommends: no
+
+- name: "Install lualdap"
+  apt:
+    name: lualdap
     state: present
     install_recommends: no
 
