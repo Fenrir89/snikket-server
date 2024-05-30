@@ -1,3 +1,4 @@
+# syntax = docker/dockerfile:1
 FROM debian:bookworm-slim
 
 ARG BUILD_SERIES=dev
