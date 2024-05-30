@@ -166,14 +166,16 @@ https_ports = {};
 c2s_direct_tls_ports = { 5223 }
 
 proxy65_ports = { ENV_SNIKKET_PROXY65_PORT or 5000 }
+if ENV_LDAP == "1" then
 
+else
 allow_registration = true
 registration_invite_only = true
 
 password_policy = {
 	length = 10;
 }
-
+end
 -- In the future we want to switch to SASL2 for better security,
 -- as client ids are not supported in SASL1 (identification is via
 -- the resource string, which is semi-public and not authenticated)
@@ -234,11 +236,20 @@ use_ipv6 = (ENV_SNIKKET_TWEAK_IPV6 ~= "0")
 log = {
 	[ENV_SNIKKET_LOGLEVEL or "info"] = "*stdout"
 }
-
+if ENV_LDAP == "1" then
+	authentication = "ldap"
+	ldap_base = ENV_LDAP_BASE
+	ldap_server = ENV_LDAP_SERVER
+	ldap_rootdn = ENV_LDAP_ROOTDN
+	ldap_password = ENV_LDAP_PASSWORD
+	ldap_tls = ENV_LDAP_TLS
+	ldap_filter = ENV_LDAP_FILTER
+	ldap_mode = ENV_LDAP_MODE
+else
 authentication = "internal_hashed"
 authorization = "internal"
 disable_sasl_mechanisms = { "PLAIN", "OAUTHBEARER" }
-
+end
 if ENV_SNIKKET_TWEAK_STORAGE == "sqlite" then
 	storage = "sql"
 	sql = {
