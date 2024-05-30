@@ -8,18 +8,18 @@ ARG BUILD_ID=0
 
 RUN install -d -m 755 /snikket;
 
-COPY tools/smtp-url-to-msmtp.lua /usr/local/bin/smtp-url-to-msmtp
+ADD tools/smtp-url-to-msmtp.lua /usr/local/bin/smtp-url-to-msmtp
 RUN chmod 550 /usr/local/bin/smtp-url-to-msmtp
 
-COPY docker/entrypoint.sh /bin/entrypoint.sh
+ADD docker/entrypoint.sh /bin/entrypoint.sh
 RUN chmod 770 /bin/entrypoint.sh
 ENTRYPOINT ["/bin/entrypoint.sh"]
 
 HEALTHCHECK CMD /usr/bin/prosodyctl shell "portcheck ${SNIKKET_TWEAK_INTERNAL_HTTP_INTERFACE:-127.0.0.1}:${SNIKKET_TWEAK_INTERNAL_HTTP_PORT:-5280}"
 
-COPY ansible /opt/ansible
+ADD ansible /opt/ansible
 
-COPY snikket-modules /usr/local/lib/snikket-modules
+ADD snikket-modules/* /usr/local/lib/snikket-modules
 
 # Required for idn2 to work, and probably generally good
 ENV LANG=C.UTF-8
