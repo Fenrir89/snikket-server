@@ -5,8 +5,8 @@ SNIKKET_DOMAIN=example.com
 SNIKKET_ADMIN_EMAIL=admin@example.com
 
 # config for ldap
-ENV_LDAP = true
-# if not true set standart autorisation 
+ENV_LDAP = 1
+# if ENV_LDAP not 1 set standart authentication 
 LDAP_BASE = "dc=myorganisation,dc=local"
 LDAP_SERVER = "ad.myorganisation.local:3894537 localhost:8389"
 LDAP_ROOTDN = "CN=adbinduser,OU=serviceusergroup,DC=myorganisation,DC=local"
