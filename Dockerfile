@@ -1,4 +1,4 @@
-# syntax = docker/dockerfile:1
+# syntax = docker/dockerfile:1.4
 FROM debian:bookworm-slim
 
 ARG BUILD_SERIES=dev
