@@ -306,7 +306,7 @@ end
 isolate_except_domains = { "push.snikket.net", "push-ios.snikket.net" }
 
 VirtualHost (DOMAIN)
-if ENV_LDAP ~= "0" then
+if ENV_LDAP == "1" then
 	authentication = "ldap"
 	ldap_base = ENV_LDAP_BASE
 	ldap_server = ENV_LDAP_SERVER
