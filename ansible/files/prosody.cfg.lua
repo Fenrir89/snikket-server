@@ -306,8 +306,8 @@ end
 isolate_except_domains = { "push.snikket.net", "push-ios.snikket.net" }
 
 VirtualHost (DOMAIN)
+if ENV_LDAP ~= "0" then
 	authentication = "ldap"
-	
 	ldap_base = ENV_LDAP_BASE
 	ldap_server = ENV_LDAP_SERVER
 	ldap_rootdn = ENV_LDAP_ROOTDN
@@ -315,7 +315,9 @@ VirtualHost (DOMAIN)
 	ldap_tls = ENV_LDAP_TLS
 	ldap_filter = ENV_LDAP_FILTER
 	ldap_mode = ENV_LDAP_MODE
-
+else
+	authentication = "internal_hashed"
+end	
 	modules_enabled = {}
 	firewall_scripts = {}
 
