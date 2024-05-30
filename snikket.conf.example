@@ -3,3 +3,12 @@ SNIKKET_DOMAIN=example.com
 
 # The email address of the primary admin
 SNIKKET_ADMIN_EMAIL=admin@example.com
+
+# config for ldap
+LDAP_BASE = "dc=myorganisation,dc=local"
+LDAP_SERVER = "ad.myorganisation.local:3894537"
+LDAP_ROOTDN = "CN=adbinduser,OU=serviceusergroup,DC=myorganisation,DC=local"
+LDAP_PASSWORD = "binduserpassword"
+LDAP_TLS = true
+LDAP_FILTER = "(sAMAccountName=$user)"
+LDAP_MODE = "bind"
