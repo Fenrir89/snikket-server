@@ -26,10 +26,10 @@ ENV LANG=C.UTF-8
 
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-        software-properties-common ca-certificates \
+        software-properties-common ca-certificates libnss-ldapd libpam-ldapd ldap-utils \
         gpg gpg-agent \
         ansible python3-passlib \
-        libcap2-bin build-essential\
+        libcap2-bin build-essential \
     && c_rehash \
     && ansible-playbook -c local -i localhost, --extra-vars "ansible_python_interpreter=/usr/bin/python3" /opt/ansible/snikket.yml \
     && apt-get remove --purge -y \
