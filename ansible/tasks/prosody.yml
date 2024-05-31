@@ -169,18 +169,6 @@
     state: present
     install_recommends: no
 
-- name: "Install openldap"
-  apt:
-    name: openldap
-    state: present
-    install_recommends: no
-
-- name: "Install lualdap"
-  apt:
-    name: lualdap
-    state: present
-    install_recommends: no
-
 - name: "Install luaunbound"
   apt:
     name: lua-unbound
