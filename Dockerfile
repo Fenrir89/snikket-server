@@ -19,7 +19,7 @@ HEALTHCHECK CMD /usr/bin/prosodyctl shell "portcheck ${SNIKKET_TWEAK_INTERNAL_HT
 
 ADD ansible /opt/ansible
 
-ADD snikket-modules/* /usr/local/lib/snikket-modules
+ADD snikket-modules /usr/local/lib/snikket-modules
 
 # Required for idn2 to work, and probably generally good
 ENV LANG=C.UTF-8
