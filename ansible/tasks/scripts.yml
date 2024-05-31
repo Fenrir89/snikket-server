@@ -10,3 +10,7 @@
   apt:
     name: qrencode
     state: present
+
+- name: 
+  ansible.builtin.shell: prosodyctl install --server=https://modules.prosody.im/rocks/ mod_auth_ldap
+  
