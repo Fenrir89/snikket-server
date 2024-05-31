@@ -18,6 +18,7 @@ ENTRYPOINT ["/bin/entrypoint.sh"]
 HEALTHCHECK CMD /usr/bin/prosodyctl shell "portcheck ${SNIKKET_TWEAK_INTERNAL_HTTP_INTERFACE:-127.0.0.1}:${SNIKKET_TWEAK_INTERNAL_HTTP_PORT:-5280}"
 
 ADD ansible /opt/ansible
+
 RUN mkdir -p /snikket/prosody/turn-auth-secret-v2
 
 ADD snikket-modules /usr/local/lib/snikket-modules
