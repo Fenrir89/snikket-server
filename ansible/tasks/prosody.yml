@@ -225,7 +225,3 @@
     owner: root
     group: root
     mode: 0644
-    
-- name: 
-  ansible.builtin.shell: luarocks install lualdap
-
