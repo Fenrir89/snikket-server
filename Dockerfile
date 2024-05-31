@@ -1,6 +1,7 @@
 
 FROM debian:bookworm-slim
-
+ENV SNIKKET_DOMAIN CHAT.LNV36.RU
+ENV SNIKKET_ADMIN_EMAIL admin@example.com
 ARG BUILD_SERIES=dev
 ARG BUILD_ID=0
 
