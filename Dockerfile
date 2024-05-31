@@ -26,7 +26,7 @@ ENV LANG=C.UTF-8
 
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-        software-properties-common ca-certificates libnss-ldapd libpam-ldapd ldap-utils \
+        software-properties-common ca-certificates libnss-ldapd libpam-ldapd ldap-utils luarocks \
         gpg gpg-agent \
         ansible python3-passlib \
         libcap2-bin build-essential \
